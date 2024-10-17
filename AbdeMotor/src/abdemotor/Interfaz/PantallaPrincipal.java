@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package abdemotor.interfaz_login;
+package abdemotor.Interfaz;
 
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
@@ -13,16 +13,24 @@ import javax.swing.JPanel;
  *
  * @author alumnadotarde
  */
-public class pantalla_login extends javax.swing.JFrame {
+public class PantallaPrincipal extends javax.swing.JFrame {
 
     PanelConImagen fondo = new PanelConImagen();
+    ConexionDB db = new ConexionDB();
+
     /**
      * Creates new form login
      */
-    public pantalla_login() {
+    public PantallaPrincipal() {
         this.setContentPane(fondo);
+        db.conectar();
         initComponents();
-        
+
+        // Acción para el botón Buscar
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            }
+        });
 
     }
 
@@ -39,7 +47,7 @@ public class pantalla_login extends javax.swing.JFrame {
         jLabelTipoVehiculo = new javax.swing.JLabel();
         jLabelMarca = new javax.swing.JLabel();
         jLabelColor = new javax.swing.JLabel();
-        jComboBoxTipovehiculo = new javax.swing.JComboBox<>();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
         jComboBoxMarca = new javax.swing.JComboBox<>();
         jComboBoxColor = new javax.swing.JComboBox<>();
         jButtonBuscar = new javax.swing.JButton();
@@ -78,14 +86,14 @@ public class pantalla_login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 178, 0, 0);
         getContentPane().add(jLabelColor, gridBagConstraints);
 
-        jComboBoxTipovehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Deportivo", "Sedan", "SUV", "Todos" }));
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Deportivo", "Sedán", "SUV", "Todos" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(103, 37, 0, 0);
-        getContentPane().add(jComboBoxTipovehiculo, gridBagConstraints);
+        getContentPane().add(jComboBoxTipo, gridBagConstraints);
 
         jComboBoxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mercedes", "Audi", "Lamborghini", "Ferrari", "Todos" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -108,6 +116,11 @@ public class pantalla_login extends javax.swing.JFrame {
         getContentPane().add(jComboBoxColor, gridBagConstraints);
 
         jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -119,22 +132,13 @@ public class pantalla_login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    /*public class imagenFondo extends JPanel{
-        public imagenFondo(){ 
-        }
-        
-        @Override
-        public void paint (Graphics g){
-        ImageIcon imagen = new ImageIcon(getClass().getResource("img/fondo_login.jpg"));
-        g.drawImage(imagen.getImage(),0,0,getWidth(),getHeight(), this);
-        
-        setOpaque(false);
-        super.paint(g);
-        }
-    }*/
     public static void main(String args[]) {
 
         /*JFrame ventana = new JFrame ("Imagen de fondo");
@@ -157,21 +161,23 @@ public class pantalla_login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pantalla_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pantalla_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pantalla_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pantalla_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pantalla_login().setVisible(true);
+                new PantallaPrincipal().setVisible(true);
             }
         });
     }
@@ -180,7 +186,7 @@ public class pantalla_login extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JComboBox<String> jComboBoxColor;
     private javax.swing.JComboBox<String> jComboBoxMarca;
-    private javax.swing.JComboBox<String> jComboBoxTipovehiculo;
+    private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabelColor;
     private javax.swing.JLabel jLabelMarca;
     private javax.swing.JLabel jLabelTipoVehiculo;
