@@ -115,12 +115,13 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxColor">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="6">
             <StringItem index="0" value="Negro"/>
             <StringItem index="1" value="Blanco"/>
             <StringItem index="2" value="Gris metalizado"/>
             <StringItem index="3" value="Plata "/>
             <StringItem index="4" value="Rojo"/>
+            <StringItem index="5" value="Todos"/>
           </StringArray>
         </Property>
       </Properties>

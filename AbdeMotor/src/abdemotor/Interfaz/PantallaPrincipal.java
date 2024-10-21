@@ -105,7 +105,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(22, 37, 0, 0);
         getContentPane().add(jComboBoxMarca, gridBagConstraints);
 
-        jComboBoxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Negro", "Blanco", "Gris metalizado", "Plata ", "Rojo" }));
+        jComboBoxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Negro", "Blanco", "Gris metalizado", "Plata ", "Rojo", "Todos" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -141,13 +141,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
 
-        /*JFrame ventana = new JFrame ("Imagen de fondo");
-        pantalla_login fondo = new  pantalla_login();
-        ventana.setContentPane(fondo);
-        ventana.setSize(600, 600);
-        ventana.setVisible(true);
-        ventana.setLocationRelativeTo(null);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
+    
  /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
